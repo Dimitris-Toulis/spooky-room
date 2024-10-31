@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Spooky Room</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1 style="text-align: center;">Welcome to the spoooky Roooom</h1>
+	<a href="https://hack.club/boba-manor" class="manor">To the manor</a>
+	<img class="ghost" src="./ghost.png" hidden></img>
+	<img src="./cobweb.png" alt="Cobweb" class="cobweb">
+	<img src="./spider.png" alt="spider" class="spider">
+	<audio autoplay="autoplay" id="bgmusic" loop >
+		<source src="./music.mp3" />     
+	</audio>
+	<button class="music-button" title="Halloween Mischief by UNIVERSFIELD, source: Free Music Archive CC BY-SA">Music</button>
+	<script>
+		let ghostVisible = false;
+		document.onmousemove = handleMouseMove;
+		function handleMouseMove(e) {
+			document.body.style.setProperty('--x', e.clientX + "px");
+			document.body.style.setProperty('--y', e.clientY + "px");
+			if(!ghostVisible){
+				ghostVisible = true
+				document.getElementsByClassName("ghost")[0].removeAttribute("hidden")
+			}
+		}
+		document.getElementsByClassName("music-button")[0].addEventListener("click",()=>{
+			document.getElementById("bgmusic").play()
+		})
+	</script>
+</body>
+
+</html>
